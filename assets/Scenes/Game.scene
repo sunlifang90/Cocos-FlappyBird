@@ -1182,6 +1182,7 @@
     },
     "_enabled": true,
     "__prefab": null,
+    "rotationSpeed": 35,
     "_id": "fe8eAnMKdFzabeYxZxvWrB"
   },
   {
