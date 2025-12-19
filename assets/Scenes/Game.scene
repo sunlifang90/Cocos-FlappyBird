@@ -83,7 +83,7 @@
         "__id__": 29
       },
       {
-        "__id__": 32
+        "__id__": 33
       }
     ],
     "_active": true,
@@ -1113,8 +1113,32 @@
     },
     "_enabled": true,
     "__prefab": null,
-    "moveSpeed": 100,
+    "bird": {
+      "__id__": 32
+    },
+    "bg": {
+      "__id__": 12
+    },
+    "land": {
+      "__id__": 28
+    },
+    "pipeManager": {
+      "__id__": 15
+    },
     "_id": "63bYHJPjVAF6qATt/poASW"
+  },
+  {
+    "__type__": "4912bmvY9VPC7kZ2wB1oP3a",
+    "_name": "",
+    "_objFlags": 0,
+    "__editorExtras__": {},
+    "node": {
+      "__id__": 33
+    },
+    "_enabled": true,
+    "__prefab": null,
+    "rotationSpeed": 35,
+    "_id": "fe8eAnMKdFzabeYxZxvWrB"
   },
   {
     "__type__": "cc.Node",
@@ -1128,9 +1152,6 @@
     "_active": true,
     "_components": [
       {
-        "__id__": 33
-      },
-      {
         "__id__": 34
       },
       {
@@ -1141,6 +1162,9 @@
       },
       {
         "__id__": 37
+      },
+      {
+        "__id__": 32
       },
       {
         "__id__": 38
@@ -1182,7 +1206,7 @@
     "_objFlags": 0,
     "__editorExtras__": {},
     "node": {
-      "__id__": 32
+      "__id__": 33
     },
     "_enabled": true,
     "__prefab": null,
@@ -1204,7 +1228,7 @@
     "_objFlags": 0,
     "__editorExtras__": {},
     "node": {
-      "__id__": 32
+      "__id__": 33
     },
     "_enabled": true,
     "__prefab": null,
@@ -1246,7 +1270,7 @@
     "_objFlags": 0,
     "__editorExtras__": {},
     "node": {
-      "__id__": 32
+      "__id__": 33
     },
     "_enabled": true,
     "__prefab": null,
@@ -1277,7 +1301,7 @@
     "_objFlags": 0,
     "__editorExtras__": {},
     "node": {
-      "__id__": 32
+      "__id__": 33
     },
     "_enabled": true,
     "__prefab": null,
@@ -1300,25 +1324,12 @@
     "_id": "8eBcT7DapJ4L9gIdeTbPPv"
   },
   {
-    "__type__": "4912bmvY9VPC7kZ2wB1oP3a",
-    "_name": "",
-    "_objFlags": 0,
-    "__editorExtras__": {},
-    "node": {
-      "__id__": 32
-    },
-    "_enabled": true,
-    "__prefab": null,
-    "rotationSpeed": 35,
-    "_id": "fe8eAnMKdFzabeYxZxvWrB"
-  },
-  {
     "__type__": "cc.CircleCollider2D",
     "_name": "",
     "_objFlags": 0,
     "__editorExtras__": {},
     "node": {
-      "__id__": 32
+      "__id__": 33
     },
     "_enabled": true,
     "__prefab": null,

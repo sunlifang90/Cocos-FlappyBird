@@ -10,12 +10,23 @@ export class PipeManager extends Component {
     @property
     private createFrequency:number = 2;
     private createTime:number = 0;
+    private hasInitCreate:boolean = false;
+
+    private canCreate:boolean = true;
+    
     
     start() {
-        this.createPipe();// 初始直接创建一个
+        
     }
 
     update(deltaTime: number) {
+        if (!this.canCreate) {
+            return;
+        }
+        if (!this.hasInitCreate) {
+            this.hasInitCreate = true;
+            this.createPipe();// 初始直接创建一个
+        }
         this.createTime += deltaTime;
         if (this.createTime > this.createFrequency) {
             this.createPipe();
@@ -30,7 +41,14 @@ export class PipeManager extends Component {
 
         let y = math.randomRangeInt(-100, 200);
         pipe.setPosition(pipe.position.x, y, 0);
-    }   
+    }  
+    
+    public enableCreate() {
+        this.canCreate = true;
+    }
+    public disableCreate() {
+        this.canCreate = false;
+    }
 }
 
 

@@ -1,5 +1,5 @@
 import { _decorator, Component, Node } from 'cc';
-import { GameManager } from './GameManager';
+import { Setting } from './Setting';
 const { ccclass, property } = _decorator;
 
 @ccclass('Pipe')
@@ -9,7 +9,7 @@ export class Pipe extends Component {
     private moveSpeed:number = 0;
     
     start() {
-        this.moveSpeed = GameManager.instance.moveSpeed;
+        this.moveSpeed = Setting.moveSpeed;
     }
 
     update(deltaTime: number) {

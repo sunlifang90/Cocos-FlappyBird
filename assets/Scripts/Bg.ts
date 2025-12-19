@@ -1,5 +1,5 @@
 import { _decorator, Component, Node } from 'cc';
-import { GameManager } from './GameManager';
+import { Setting } from './Setting';
 const { ccclass, property } = _decorator;
 
 @ccclass('Bg')
@@ -11,12 +11,15 @@ export class Bg extends Component {
     private bg2:Node = null;
     @property
     private moveSpeed:number = 0;
+
+    private canMove:boolean = true;
     
     start() {
-        this.moveSpeed = GameManager.instance.moveSpeed
+        this.moveSpeed = Setting.moveSpeed
     }
 
     update(deltaTime: number) {
+        if (!this.canMove) return;
         let moveDistance = this.moveSpeed * deltaTime;
 
         const bg1Pos = this.bg1.position;
@@ -37,6 +40,14 @@ export class Bg extends Component {
         } else {
             this.bg2.setPosition(bg2x, bg2Pos.y, 0);
         }
+    }
+
+    moveEnable() {
+        this.canMove = true;
+    }
+
+    moveDisable() {
+        this.canMove = false;
     }
 }
 
