@@ -1,4 +1,6 @@
-import { _decorator, Animation, Collider2D, Component, Contact2DType, Input, input, IPhysics2DContact, Node, RigidBody, RigidBody2D, Vec2, Vec3 } from 'cc';
+import { _decorator, Animation, Collider2D, Component, Contact2DType, director, Input, input, IPhysics2DContact, Node, RigidBody, RigidBody2D, Vec2, Vec3 } from 'cc';
+import { Tags } from './Tags';
+import { GameManager } from './GameManager';
 const { ccclass, property } = _decorator;
 
 @ccclass('Bird')
@@ -63,6 +65,9 @@ export class Bird extends Component {
     onEndContact (selfCollider: Collider2D, otherCollider: Collider2D, contact: IPhysics2DContact | null) {
         // 只在两个碰撞体结束接触时被调用一次
         console.log('onEndContact');
+        if (otherCollider.tag == Tags.PIPE_MIDDLE) {
+            director.emit('addScore');
+        }
     }
 
     changeToEnable () {

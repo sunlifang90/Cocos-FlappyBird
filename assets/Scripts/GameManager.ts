@@ -1,8 +1,9 @@
-import { _decorator, Component, Game, Node } from 'cc';
+import { _decorator, Component, director, Game, Label, Node } from 'cc';
 import { Bird } from './Bird';
 import { Bg } from './Bg';
 import { PipeManager } from './PipeManager';
 import { GameReadyUI } from './UI/GameReadyUI';
+import { GameData } from './GameData';
 const { ccclass, property } = _decorator;
 
 enum GameState {
@@ -29,6 +30,8 @@ export class GameManager extends Component {
 
     @property(GameReadyUI)
     private gameReayUI:GameReadyUI = null;
+    @property(Node)
+    private gamingUI:Node = null;
 
     private gameState: GameState = GameState.READY;
     
@@ -38,6 +41,7 @@ export class GameManager extends Component {
 
     protected onLoad(): void {
         GameManager._instance = this;
+        director.on("addScore", this.addScore, this);
     }
     
     start() {
@@ -55,6 +59,8 @@ export class GameManager extends Component {
         this.bg.moveDisable();
         this.land.moveDisable();
         this.pipeManager.disableCreate();
+        this.gameReayUI.node.active = true;
+        this.gamingUI.active = false;
     }
 
     startGame() {
@@ -64,12 +70,18 @@ export class GameManager extends Component {
         this.land.moveEnable();
         this.pipeManager.enableCreate();
         this.gameReayUI.node.active = false;
+        this.gamingUI.active = true;
     }
 
     gameOver() {
         this.gameState = GameState.OVER;
     }
 
+
+    addScore(score: number=1) {
+        GameData.addScore(score);
+        this.gamingUI.getChildByName("Score").getComponent(Label).string = GameData.getScore().toString();
+    }
 }
 
 
