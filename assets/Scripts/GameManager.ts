@@ -4,6 +4,7 @@ import { Bg } from './Bg';
 import { PipeManager } from './PipeManager';
 import { GameReadyUI } from './UI/GameReadyUI';
 import { GameData } from './GameData';
+import { GameOverUI } from './UI/GameOverUI';
 const { ccclass, property } = _decorator;
 
 enum GameState {
@@ -32,6 +33,8 @@ export class GameManager extends Component {
     private gameReayUI:GameReadyUI = null;
     @property(Node)
     private gamingUI:Node = null;
+    @property(GameOverUI)
+    private gameOverUI:GameOverUI = null;
 
     private gameState: GameState = GameState.READY;
     
@@ -42,6 +45,7 @@ export class GameManager extends Component {
     protected onLoad(): void {
         GameManager._instance = this;
         director.on("addScore", this.addScore, this);
+        director.on("gameOver", this.gameOver, this);
     }
     
     start() {
@@ -61,6 +65,7 @@ export class GameManager extends Component {
         this.pipeManager.disableCreate();
         this.gameReayUI.node.active = true;
         this.gamingUI.active = false;
+        this.gameOverUI.node.active = false;
     }
 
     startGame() {
@@ -71,10 +76,17 @@ export class GameManager extends Component {
         this.pipeManager.enableCreate();
         this.gameReayUI.node.active = false;
         this.gamingUI.active = true;
+        this.gameOverUI.node.active = false;
     }
 
     gameOver() {
         this.gameState = GameState.OVER;
+        this.bird.changeToDisable();
+        this.bg.moveDisable();
+        this.land.moveDisable();
+        this.pipeManager.disableCreate();
+        this.gamingUI.active = false;
+        this.gameOverUI.show();
     }
 
 

@@ -61,6 +61,9 @@ export class Bird extends Component {
     onBeginContact (selfCollider: Collider2D, otherCollider: Collider2D, contact: IPhysics2DContact | null) {
         // 只在两个碰撞体开始接触时被调用一次
         console.log(otherCollider.tag);
+        if (otherCollider.tag == Tags.PIPE || otherCollider.tag == Tags.LAND) {
+            director.emit('gameOver');
+        }
     }
     onEndContact (selfCollider: Collider2D, otherCollider: Collider2D, contact: IPhysics2DContact | null) {
         // 只在两个碰撞体结束接触时被调用一次
