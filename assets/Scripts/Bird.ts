@@ -49,7 +49,7 @@ export class Bird extends Component {
             return;
         }
         //
-        this.rgdBody.linearVelocity = new Vec2(0, 10);   
+        this.rgdBody.linearVelocity = new Vec2(0, 8);   
 
         this.node.setRotationFromEuler(new Vec3(0, 0, 30));
         //this.rgdBody.applyForceToCenter(new Vec2(0, 2), true);

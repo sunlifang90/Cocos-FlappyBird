@@ -1,7 +1,8 @@
-import { _decorator, Component, Node } from 'cc';
+import { _decorator, Component, Game, Node } from 'cc';
 import { Bird } from './Bird';
 import { Bg } from './Bg';
 import { PipeManager } from './PipeManager';
+import { GameReadyUI } from './UI/GameReadyUI';
 const { ccclass, property } = _decorator;
 
 enum GameState {
@@ -26,6 +27,9 @@ export class GameManager extends Component {
     @property(PipeManager)
     private pipeManager:PipeManager = null;
 
+    @property(GameReadyUI)
+    private gameReayUI:GameReadyUI = null;
+
     private gameState: GameState = GameState.READY;
     
     public static instance() {
@@ -38,7 +42,7 @@ export class GameManager extends Component {
     
     start() {
         
-        //this.gameReady()
+        this.gameReady()
     }
 
     update(deltaTime: number) {
@@ -55,6 +59,11 @@ export class GameManager extends Component {
 
     startGame() {
         this.gameState = GameState.PLAYING;
+        this.bird.changeToEnable();
+        this.bg.moveEnable();
+        this.land.moveEnable();
+        this.pipeManager.enableCreate();
+        this.gameReayUI.node.active = false;
     }
 
     gameOver() {

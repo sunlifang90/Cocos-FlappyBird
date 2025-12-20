@@ -26,6 +26,8 @@ export class PipeManager extends Component {
         if (!this.hasInitCreate) {
             this.hasInitCreate = true;
             this.createPipe();// 初始直接创建一个
+            this.createTime = 0;
+            return
         }
         this.createTime += deltaTime;
         if (this.createTime > this.createFrequency) {

@@ -17,6 +17,11 @@ export class Pipe extends Component {
         let moveDistance = this.moveSpeed * deltaTime;
 
         this.node.setPosition(position.x-moveDistance, position.y, position.z);
+
+        //销毁管道
+        if (position.x < -850) {
+            this.node.destroy();
+        }
     }
 }
 
