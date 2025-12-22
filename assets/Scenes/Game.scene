@@ -1143,6 +1143,14 @@
     "gameOverUI": {
       "__id__": 59
     },
+    "bgm": {
+      "__uuid__": "0a496264-6c47-4f53-9857-4d1c83a23544",
+      "__expectedType__": "cc.AudioClip"
+    },
+    "gameOverAudio": {
+      "__uuid__": "158b754f-3597-4c66-927e-92c6b6ac4cbc",
+      "__expectedType__": "cc.AudioClip"
+    },
     "_id": "63bYHJPjVAF6qATt/poASW"
   },
   {
@@ -1156,6 +1164,10 @@
     "_enabled": true,
     "__prefab": null,
     "rotationSpeed": 35,
+    "clickAudio": {
+      "__uuid__": "db0f5d9f-21c7-4cb3-be6b-9b81d738ac0f",
+      "__expectedType__": "cc.AudioClip"
+    },
     "_id": "fe8eAnMKdFzabeYxZxvWrB"
   },
   {
