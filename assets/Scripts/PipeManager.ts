@@ -1,4 +1,5 @@
 import { _decorator, Component, instantiate, math, Node, Prefab } from 'cc';
+import { Pipe } from './Pipe';
 const { ccclass, property } = _decorator;
 
 @ccclass('PipeManager')
@@ -50,6 +51,9 @@ export class PipeManager extends Component {
     }
     public disableCreate() {
         this.canCreate = false;
+        this.node.children.forEach(element => {
+            element.getComponent(Pipe).stopMove();
+        });
     }
 }
 

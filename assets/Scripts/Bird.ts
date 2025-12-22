@@ -83,6 +83,11 @@ export class Bird extends Component {
         this.rgdBody.enabled = false;
         this.canControl = false;
     }
+
+    changeToDisableNoRgdBody () {
+        this.animation.enabled = false;
+        this.canControl = false;
+    }
 }
 
 

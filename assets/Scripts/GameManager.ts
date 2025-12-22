@@ -79,9 +79,15 @@ export class GameManager extends Component {
         this.gameOverUI.node.active = false;
     }
 
+    restartGame() {
+        GameData.resetScore();
+        director.loadScene("Game");
+    }
+
     gameOver() {
+        if (this.gameState == GameState.OVER) return;
         this.gameState = GameState.OVER;
-        this.bird.changeToDisable();
+        this.bird.changeToDisableNoRgdBody();
         this.bg.moveDisable();
         this.land.moveDisable();
         this.pipeManager.disableCreate();
